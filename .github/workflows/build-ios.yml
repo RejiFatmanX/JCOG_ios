@@ -24,16 +24,6 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-pub-
 
-      - name: Cache CocoaPods
-        uses: actions/cache@v4
-        with:
-          path: |
-            ios/Pods
-            ~/Library/Caches/CocoaPods
-          key: ${{ runner.os }}-cocoapods-${{ hashFiles('ios/Podfile.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-cocoapods-
-
       - name: Set up Flutter
         uses: subosito/flutter-action@v2
         with:
