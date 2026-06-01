@@ -21,13 +21,13 @@ jobs:
         with:
           channel: stable
 
+      - name: Get Flutter dependencies
+        run: flutter pub get
+
       - name: Install CocoaPods dependencies
         run: |
           cd ios
           pod install
-
-      - name: Get Flutter dependencies
-        run: flutter pub get
 
       - name: Build iOS IPA (unsigned)
         run: |
