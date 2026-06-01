@@ -11,7 +11,7 @@ project 'Runner', {
 }
 
 def flutter_root
-  generated_xcode_build_settings_path = File.expand_path('../Flutter/Generated.xcconfig', __dir__)
+  generated_xcode_build_settings_path = File.expand_path('Flutter/Generated.xcconfig', __dir__)
   unless File.exist?(generated_xcode_build_settings_path)
     raise "Cannot find generated Xcode build settings file. Make sure flutter pub get is executed first."
   end
