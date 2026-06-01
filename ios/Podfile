@@ -24,9 +24,14 @@ end
 
 require File.expand_path(File.join('packages', 'flutter_tools', 'bin', 'podhelper'), flutter_root)
 
-flutter_ios_podfile_setup
+install! 'cocoapods', :disable_input_output_paths => true
 
-flutter_install_all_ios_pods(File.dirname(File.realpath(__FILE__)))
+target 'Runner' do
+  use_frameworks! :linkage => :static
+  use_modular_headers!
+
+  flutter_install_all_ios_pods(File.dirname(File.realpath(__FILE__)))
+end
 
 post_install do |installer|
   flutter_post_install(installer)
