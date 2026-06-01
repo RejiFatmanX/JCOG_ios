@@ -1,0 +1,26 @@
+workflows:
+  ios_build:
+    name: Build iOS IPA
+    max_build_duration: 120
+    environment:
+      flutter: stable
+      xcode: latest
+      cocoapods: default
+      vars:
+        FLUTTER_BUILD_MODE: release
+        FLUTTER_BUILD_NAME: 1.0.0
+        FLUTTER_BUILD_NUMBER: 1
+    scripts:
+      - name: Install Flutter dependencies
+        script: |
+          flutter pub get
+      - name: Install CocoaPods dependencies
+        script: |
+          cd ios
+          pod install
+      - name: Build iOS IPA
+        script: |
+          cd ..
+          flutter build ipa --release
+    artifacts:
+      - build/ios/ipa/*.ipa
