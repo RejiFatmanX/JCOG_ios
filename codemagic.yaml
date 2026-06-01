@@ -20,7 +20,6 @@ workflows:
           pod install
       - name: Build iOS IPA
         script: |
-          cd ..
           flutter build ipa --release
     artifacts:
       - build/ios/ipa/*.ipa
